@@ -1,0 +1,64 @@
+<% puts 'template talks' %>
+<link type="text/css" rel="stylesheet" href="/mediabrowser/css/list.css" />
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:error] %>
+  <p class="error"><%= flash[:error] %></p>
+<% end %>
+
+
+<form id="new_file" method="post" action="<%= url_for create_file_mediabrowser_path %>" enctype="multipart/form-data">
+  <%= token_tag %>
+  <input type="hidden" name="new_file[path]" value="<%= @current_url %>" />
+  <h2>Add a file</h2>
+  <label for="new_file_data">File :</label>
+  <input type="file" name="new_file[file]" id="new_file_data" />
+  <input type="submit" value="Add" />
+</form>
+
+<form id="new_dir" method="post" action="<%= url_for create_dir_mediabrowser_path %>">
+  <%= token_tag %>
+  <input type="hidden" name="new_dir[path]" value="<%= @current_url %>" />
+  <h2>Create a directory</h2>
+  <label for="new_dir_name">Name :</label>
+  <input type="text" name="new_dir[name]" id="new_dir_name" />
+  <input type="submit" value="Create" />
+</form>
+
+<ul id="breadcrumb">
+  <% @breadcrumb.each do |crumb| %>
+  <li>/<a href="<%= url_for mediabrowser_path :dir => crumb[:url] %>" title="Go to '<%= crumb[:name] %>' folder"><%= crumb[:name] %></a></li>
+  <% end %>
+</ul>
+
+<ul class="directories">
+  <% @dirs.each do |dir| %>
+  <li class="dir">
+    <div class="icon">
+      <a href="<%= url_for mediabrowser_path :dir => dir[:url] %>">
+        <label><%= dir[:name] %></label>
+      </a>
+    </div>
+    <ul class="infos">
+      <li class="label"><label><%= dir[:name] %></label></li>
+      <li class="delete"><a href="<%= url_for delete_file_mediabrowser_path :file => dir[:url] %>">delete</a></li>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+
+<ul class="files">
+  <% @files.each do |file| %>
+  <li class="<%= file[:type] %>">
+    <div class="icon">
+      <a href="<%= file[:url] %>"><img src="<%= file[:icon] %>" title="<%= file[:name] %>" /></a>
+    </div>
+    <ul class="infos">
+      <li class="label"><label title="<%= file[:name] %>"><%= file[:name] %></label></li>
+      <li class="delete"><a href="<%= url_for delete_file_mediabrowser_path :file => file[:url] %>" title="Delete this file">delete</a></li>
+    </ul>
+  </li>
+  <% end %>
+</ul>

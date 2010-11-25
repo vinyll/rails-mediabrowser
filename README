@@ -1,0 +1,16 @@
+Mediabrowser
+============
+
+Media browser is a Rails 3 plugin for exploring your files from a web page.
+
+It is ideal for browsing images, videos and others in a admin web interface.
+
+
+Example
+=======
+
+open your browser at http://0.0.0.0:3000/mediabrowser, and create directories or upload files 
+from there.
+
+
+Copyright (c) 2010 Vincent Agnano, released under the MIT license

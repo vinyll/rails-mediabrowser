@@ -1,0 +1,111 @@
+form#new_file, form#new_dir {
+  float: left;
+  background-color: #EEE;
+  border: 1px solid #999;
+  color:  #333;
+  margin-right: 50px;
+  padding:  10px;
+  width:  300px;
+}
+
+form#new_file h2, form#new_dir h2 {
+  font-size:  1.2em;
+  color:      #333;
+  margin:     0;
+}
+
+form#new_file input[type="submit"], form#new_dir input[type="submit"] {
+	display: block;
+	width:   150px;
+	border-radius: 3px;
+	background-color:  #CCC;
+	border:  1px solid #999;
+	font-weight: bold;
+}
+form#new_file input[type="submit"]:hover, form#new_dir input[type="submit"]:hover {
+  background-color: #BBB;
+  cursor: pointer;
+}
+form#new_dir input[type="text"] {
+	border:  1px solid #CCC;
+}
+
+#breadcrumb {
+  clear:            both;
+  border-bottom:    1px solid #999;
+  font-weight:      bold;
+  padding:          20px 0 10px 0;
+}
+#breadcrumb li {
+	display: inline;
+}
+#breadcrumb li a {
+	color:           #333;
+}
+
+ul.directories, ul.files {
+  clear:   both;
+	display: inline;
+	list-style: none;
+}
+ul.directories > li, ul.files > li {
+	float:   left;
+	width:   120px;
+	height:  100px;
+	margin:  10px;
+	border:  1px solid #999;
+	background-color:  #EEE;
+	text-align:  center;
+}
+.directories .icon a {
+	background:  transparent url('/mediabrowser/images/dir.png') no-repeat 50% 10px;
+	text-decoration: none;
+}
+.directories .icon a label {
+	display:     none;
+}
+
+ul.files > li:not(.image) .icon img {
+	margin-top:  8px;
+}
+ul.files > li.image .icon img {
+	margin:  0 auto;
+	width:   100%;
+}
+
+.icon > a {
+	display:   block;
+	height:    80px;
+	overflow:  hidden;
+}
+
+.infos {
+	background-color: #CCC;
+	border-top:       1px solid #999;
+	width:            auto;
+	height:           19px;
+	overflow:         hidden;
+	list-style:       none;
+	padding:          0;
+	margin:           0;
+  font-size:        12px;
+  color:            #333;
+  position:         relative;
+  text-align:       left;
+}
+ul.infos li {
+	margin:  0;	
+}
+.infos .label {
+	width: 100px;
+}
+.infos .delete a {
+	display:   block;
+	width:     20px;
+	height:    20px;
+	position:  absolute;
+	top:       2px;
+	right:     0;
+	text-indent: -5000px;
+	background:  transparent url('/mediabrowser/images/delete.png') no-repeat;
+}
