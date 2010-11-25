@@ -1,5 +1,4 @@
 class MediabrowserController < ApplicationController
-  layout 'admin'
   
   before_filter :define_path
   
