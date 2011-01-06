@@ -4,7 +4,7 @@ class MediabrowserController < ApplicationController
   
   
   def define_path
-    @public_path = File.join(RAILS_ROOT, 'public')
+    @public_path = File.join(Rails.root.to_s, 'public')
     @uploads_url = '/uploads'
     @upload_path = File.join(@public_path, @uploads_url)
     @current_url = params[:dir] || @uploads_url
